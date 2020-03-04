@@ -1,0 +1,489 @@
+Chapter 1. Getting Started: Diving In
+
+Android has taken the world by storm.
+
+Everybody wants a smartphone or tablet, and Android devices are hugely popular. In this book, We will teach you how to develop your own apps, and We will start by getting you to build a basic app and run it on an Android Virtual Device. Along the way, you will meet some of the basic components of all Android apps, such as activities and layouts. All you need is a little Java know-how...
+
+Welcome to Androidville Android is the world is most popular mobile platform. At the last count, there were over two billion active Android devices worldwide, and that number is growing rapidly.
+
+Android is a comprehensive open source platform based on Linux and championed by Google. it is a powerful development framework that includes everything you need to build great apps using a mix of Java and XML. What is more, it enables you to deploy those apps to a wide variety of devices—phones, tablets, and more.
+
+So what makes up a typical Android app?
+
+We are going to build our Android apps using a mixture of Java and XML. We will explain things along the way, but you will need to have a fair understanding of Java to get the most out of this book.
+
+Layouts define what each screen looks like A typical Android app is composed of one or more screens. You define what each screen looks like using a layout to define its appearance. Layouts are usually defined in XML, and can include GUI components such as buttons, text fields, and labels. 
+
+Activities define what the app does Layouts only define the appearance of the app. You define what the app does using one or more activities. An activity is a special Java class that decides which layout to use and tells the app how to respond to the user. As an example, if a layout includes a button, you need to write Java code in the activity to define what the button should do when you press it.
+
+Sometimes extra resources are needed too In addition to activities and layouts, Android apps often need extra resources such as image files and application data. You can add any extra files you need to the app.
+
+Android apps are really just a bunch of files in particular directories. When you build your app, all of these files get bundled together, giving you an app you can run on your device. 
+
+The Android platform dissected The Android platform is made up of a number of different components. It includes core applications such as Contacts, a set of APIs to help you control what your app looks like and how it behaves, and a whole load of supporting files and libraries. Here is a quick look at how they all fit together:
+
+RELAX
+
+Do not worry if this seems like a lot to take in.
+
+We are just giving you an overview of what is included in the Android platform. We will explain the different components in more detail as and when we need to. 
+
+The great news is that all of the powerful Android libraries are exposed through the APIs in the application framework, and it is these APIs that you use to create great Android apps. All you need to begin is some Java knowledge and a great idea for an app.
+
+Here is what We are going to do So let is dive in and create a basic Android app. There are just a few things we need to do:
+
+Set up a development environment.
+
+We need to install Android Studio, which includes all the tools you need to develop Android apps.
+
+Build a basic app.
+
+We will build a simple app using Android Studio that will display some sample text on the screen.
+
+Run the app in the Android emulator.
+
+We will use the built-in emulator to see the app up and running.
+
+Change the app.
+
+Finally, We will make a few tweaks to the app we created in step 2, and run it again. 
+
+THERE ARE NO DUMB QUESTIONS Q: Are all Android apps developed in Java?
+
+A: You can develop Android apps in other languages, too. Most developers use Java, so that is what We are covering in this book.
+
+Q: How much Java do I need to know for Android app development?
+
+A: You really need experience with Java SE (Standard Edition). If you are feeling rusty, we suggest getting a copy of Head First Java by Kathy Sierra and Bert Bates.
+
+Q: Do I need to know about Swing and AWT?
+
+A: Android does not use Swing or AWT, so do not worry if you do not have Java desktop GUI experience.
+
+Your development environment
+
+Java is the most popular language used to develop Android applications. Android devices do not run .class and .jar files. Instead, to improve speed and battery performance, Android devices use their own optimized formats for compiled code. That means that you ca not use an ordinary Java development environment—you also need special tools to convert your compiled code into an Android format, to deploy them to an Android device, and to let you debug the app once it is running.
+
+All of these come as part of the Android SDK. Let is take a look at what is included.
+
+The Android SDK The Android Software Development Kit contains the libraries and tools you need to develop Android apps. Here are some of the main points: 
+
+Android Studio is a special version of IntelliJ IDEA IntelliJ IDEA is one of the most popular IDEs for Java development. Android Studio is a version of IDEA that includes a version of the Android SDK and extra GUI tools to help you with your app development.
+
+In addition to providing you with an editor and access to the tools and libraries in the Android SDK, Android Studio gives you templates you can use to help you create new apps and classes, and it makes it easy to do things such as package your apps and run them.
+
+Install Android Studio
+
+Before we go any further, you need to install Android Studio on your machine. We are not including the installation instructions in this book as they can get out of date pretty quickly, but you will be fine if you follow the online instructions.
+
+NOTE We are using Android Studio version 2.3. You will need to use this version or above to get the most out of this book.
+
+First, check the Android Studio system requirements here:
+
+Then follow the Android Studio installation instructions here: 
+
+Once you have installed Android Studio, open it and follow the instructions to add the latest SDK tools and Support Libraries.
+
+When you are done, you should see the Android Studio welcome screen. You are now ready to build your first Android app. 
+
+THERE ARE NO DUMB QUESTIONS Q: You say We are going to use Android Studio to build the Android apps. Do I have to?
+
+A: Strictly speaking, you do not have to use Android Studio to build Android apps. All you need is a tool that will let you write and compile Java code, plus a few other tools to convert the compiled code into a form that Android devices can run.
+
+Android Studio is the official Android IDE, and the Android team recommends using it. But quite a lot of people use IntelliJ IDEA instead.
+
+Q: Can I write Android apps without using an IDE?
+
+A: it is possible, but it is more work. Most Android apps are now created using a build tool called Gradle. Gradle projects can be created and built using a text editor and a command line.
+
+Q: A build tool? So is gradle like ANT?
+
+A: it is similar, but Gradle is much more powerful than ANT. Gradle can compile and deploy code, just like ANT, but it also uses Maven to download any third-party libraries your code needs. Gradle also uses Groovy as a scripting language, which means you can easily create quite complex builds with Gradle.
+
+Q: Most apps are built using Gradle? I thought you said most developers use Android Studio.
+
+A: Android Studio provides a graphical interface to Gradle, and also to other tools for creating layouts, reading logs, and debugging.
+
+You can find out more about Gradle in Appendix B.
+
+Build a basic app Now that you have set up your development environment, you are ready to create your first Android app. Here is what the app will look like: 
+
+How to build the app
+
+Whenever you create a new app, you need to create a new project for it. Make sure you have Android Studio open, and follow along with us.
+
+1. Create a new project The Android Studio welcome screen gives you a number of options. We want to create a new project, so click on the option for "Start a new Android Studio project." 
+
+How to build the app (continued)
+
+2. Configure the project You now need to configure the app by telling Android Studio what you want to call it, what company domain to use, and where you would like to store the files.
+
+Android Studio uses the company domain and application name to form the name of the package that will be used for your app. As an example, if you give your app a name of "My First App" and use a company domain of "hfad.com", Android Studio will derive a package name of com.hfad.myfirstapp. The package name is really important in Android, as it is used by Android devices to uniquely identify your app.
+
+Enter an application name of "My First App", enter a company domain of "hfad.com", uncheck the option to include C++ support, and accept the default project location. Then click on the Next button.
+
+NOTE Some versions of Android Studio may have an extra option asking if you want to include Kotlin support. Uncheck this option if it is there.
+
+WATCH IT!
+
+The package name must stay the same for the lifetime of your app.
+
+it is a unique identifier for your app and used to manage multiple versions of the same app. 
+
+How to build the app (continued)
+
+3. Specify the minimum SDK You now need to indicate the minimum SDK of Android your app will use. API levels increase with every new version of Android. Unless you only want your app to run on the very newest devices, you will probably want to specify one of the older APIs.
+
+Here, We are choosing a minimum SDK of API level 19, which means it will be able to run on most devices. Also, We are only going to create a version of our app to run on phones and tablets, so We will leave the other options unchecked.
+
+NOTE There is more about the different API levels on the next page.
+
+When you have done this, click on the Next button. 
+
+ANDROID VERSIONS UP CLOSE You have probably heard a lot of things about Android that sound tasty, like Jelly Bean, KitKat, Lollipop, and Nougat. So what is with all the confectionary?
+
+Android versions have a version number and a codename. The version number gives the precise version of Android (e.g., 7.0), while the codename is a more generic "friendly" name that may cover several versions of Android (e.g., Nougat). The API level refers to the version of the APIs used by applications. As an example, the equivalent API level for Android version 7.1.1 is 25.
+
+When you develop Android apps, you really need to consider which versions of Android you want your app to be compatible with. If you specify that your app is only compatible with the very latest version of the SDK, you might find that it ca not be run on many devices. You can find out the percentage of devices running particular versions here.
+
+Activities and layouts from 50,000 feet
+
+The next thing you will be prompted to do is add an activity to your project. Every Android app is a collection of screens, and each screen is composed of an activity and a layout.
+
+An activity is a single, defined thing that your user can do. You might have an activity to compose an email, take a photo, or find a contact. Activities are usually associated with one screen, and they are written in Java.
+
+Layouts define how the user interface is presented.
+
+A layout describes the appearance of the screen. Layouts are written as XML files and they tell Android how the different screen elements are arranged.
+
+Let is look in more detail at how activities and layouts work together to create a user interface:
+
+Activities define actions.
+
+The device launches your app and creates an activity object.
+
+The activity object specifies a layout.
+
+The activity tells Android to display the layout onscreen. 
+
+The user interacts with the layout that is displayed on the device.
+
+The activity responds to these interactions by running application code.
+
+The activity updates the display...
+
+...which the user sees on the device. 
+
+Now that you know a bit more about what activities and layouts are, let is go through the last couple of steps in the Create New Project wizard and get it to create an activity and layout.
+
+How to build the app (continued)
+
+4. Add an activity The next screen lets you choose among a series of templates you can use to create an activity and layout. We are going to create an app with an empty activity and layout, so choose the Empty Activity option and click the Next button. 
+
+How to build the app (continued)
+
+5. Customize the activity You will now be asked what you want to call the screen is activity and layout. Enter an activity name of "MainActivity", make sure the option to generate a layout file is checked, enter a layout name of "activity_main", and then uncheck the Backwards Compatibility (AppCompat) option. The activity is a Java class, and the layout is an XML file, so the names we have given here will create a Java class file called MainActivity.java and an XML file called activity_main.xml.
+
+When you click on the Finish button, Android Studio will build your app. 
+
+You have just created your first Android app
+
+So what just happened?
+
+The Create New Project wizard created a project for your app, configured to your specifications.
+
+You defined which versions of Android the app should be compatible with, and the wizard created all of the files and folders needed for a basic valid app.
+
+The wizard created an activity and layout with template code.
+
+The template code includes layout XML and activity Java code, with sample "Hello World!" text in the layout.
+
+When you finish creating your project by going through the wizard, Android Studio automatically displays the project for you.
+
+Here is what our project looks like (do not worry if it looks complicated—We will break it down over the next few pages): This is the project in Android Studio. 
+
+Android Studio creates a complete folder structure for you
+
+An Android app is really just a bunch of valid files in a particular folder structure, and Android Studio sets all of this up for you when you create a new app. The easiest way of looking at this folder structure is with the explorer in the leftmost column of Android Studio.
+
+The explorer contains all of the projects that you currently have open. To expand or collapse folders, just click on the arrows to the left of the folder icons. 
+
+The folder structure includes different types of files If you browse through the folder structure, you will see that the wizard has created various types of files and folders for you:
+
+Java and XML source files
+
+These are the activity and layout files for your app.
+
+Android-generated Java files
+
+There are some extra Java files you do not need to touch that Android Studio generates for you automatically.
+
+Resource files
+
+These include default image files for icons, styles your app might use, and any common String values your app might want to look up.
+
+Android libraries
+
+In the wizard, you specified the minimum SDK version you want your app to be compatible with. Android Studio makes sure your app includes the relevant Android libraries for that version.
+
+Configuration files
+
+The configuration files tell Android what is actually in the app and how it should run.
+
+Let is take a closer look at some of the key files and folders in Androidville.
+
+Useful files in your project
+
+Android Studio projects use the Gradle build system to compile and deploy apps. Gradle projects have a standard structure. Here are some of the key files and folders you will be working with: 
+
+Edit code with the Android Studio editors
+
+You view and edit files using the Android Studio editors. Double-click on the file you want to work with, and the file is contents will appear in the middle of the Android Studio window.
+
+The code editor Most files get displayed in the code editor, which is just like a text editor, but with extra features such as color coding and code checking. 
+
+The design editor If you are editing a layout, you have an extra option. Rather than edit the XML (such as that shown on the next page), you can use the design editor, which allows you to drag GUI components onto your layout, and arrange them how you want. The code editor and design editor give different views of the same file, so you can switch back and forth between the two.
+
+WHAT is MY PURPOSE? Here is the code from an example layout file (not the one Android Studio generated for us). We know you have not seen layout code before, but just see if you can match each of the descriptions at the bottom of the page to the correct lines of code. We have done one to get you started. 
+
+WHAT is MY PURPOSE? SOLUTION Here is the code from an example layout file (not the one Android Studio generated for us). We know you have not seen layout code before, but just see if you can match each of the descriptions at the bottom of the page to the correct lines of code. We have done one to get you started. 
+
+WHAT is MY PURPOSE? Now let is see if you can do the same thing for some activity code. This is example code, and not necessarily the code that Android Studio will have generated for you. Match the descriptions below to the correct lines of code.
+
+MainActivity.java
+
+package com.hfad.myfirstapp;
+
+import android.os.Bundle; import android.app.Activity;
+
+public class MainActivity extends Activity {
+
+ @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); } } This is the package name.
+
+Implement the onCreate() method from the Activity class. This method is called when the activity is first created.
+
+These are Android classes used in MainActivity.
+
+Specify which layout to use.
+
+MainActivity extends the Android class android.app.Activity.
+
+WHAT is MY PURPOSE? SOLUTION Now let is see if you can do the same thing for some activity code. This is example code, and not necessarily the code that Android Studio will have generated for you. Match the descriptions below to the correct lines of code. 
+
+Run the app in the Android emulator
+
+So far you have seen what your Android app looks like in Android Studio and got a feel for how it hangs together. But what you really want to do is see it running, right?
+
+You have a couple of options when it comes to running your apps. The first option is to run them on a physical device. But what if you do not have one with you, or you want to see how your app looks on a type of device you do not have?
+
+In that case, you can use the Android emulator that is built into the Android SDK. The emulator enables you to set up one or more Android virtual devices (AVDs) and then run your app in the emulator as though it is running on a physical device.
+
+The Android emulator allows you to run your app on an Android virtual device (AVD), which behaves just like a physical Android device. You can set up numerous AVDs, each emulating a different type of device.
+
+So what does the emulator look like? Here is an AVD running in the Android emulator. It looks just like a phone running on your computer.
+
+The emulator recreates the exact hardware environment of an Android device: from its CPU and memory through to the sound chips and the video display. The emulator is built on an existing emulator called QEMU (pronounced "queue em you"), which is similar to other virtual machine applications you may have used, like VirtualBox or VMWare.
+
+NOTE Once you have set up an AVD, you will be able to see your app running on it. Android Studio launches the emulator for you.
+
+The exact appearance and behavior of the AVD depends on how you have set up the AVD in the first place. The AVD here is set up to mimic a Nexus 5X, so it will look and behave just like a Nexus 5X on your computer.
+
+Let is set up an AVD so that you can see your app running in the emulator. 
+
+Create an Android Virtual Device
+
+There are a few steps you need to go through in order to set up an AVD within Android Studio. We will set up a Nexus 5X AVD running API level 25 so that you can see how your app looks and behaves running on this type of device. The steps are pretty much identical no matter what type of virtual device you want to set up.
+
+Open the Android Virtual Device Manager The AVD Manager allows you to set up new AVDs, and view and edit ones you have already created. Open it by selecting Android on the Tools menu and choosing AVD Manager.
+
+If you have no AVDs set up already, you will be presented with a screen prompting you to create one. Click on the "Create Virtual Device" button. 
+
+Select the hardware On the next screen, you will be prompted to choose a device definition. This is the type of device your AVD will emulate. You can choose a variety of phone, tablet, wear, or TV devices.
+
+We are going to see what our app looks like running on a Nexus 5X phone. Choose Phone from the Category menu and Nexus 5X from the list. Then click the Next button. 
+
+Creating an AVD (continued)
+
+Select a system image Next, you need to select a system image. The system image gives you an installed version of the Android operating system. You can choose the version of Android you want to be on your AVD.
+
+You need to choose a system image for an API level that is compatible with the app you are building. As an example, if you want your app to work on a minimum of API level 19, choose a system image for at least API level 19. We want our AVD to run API level 25, so choose the system image with a release name of Nougat and a target of Android 7.1.1 (API level 25). Then click on the Next button. 
+
+We will continue setting up the AVD on the next page.
+
+Creating an AVD (continued)
+
+Verify the AVD configuration On the next screen, you will be asked to verify the AVD configuration. This screen summarizes the options you chose over the last few screens, and gives you the option of changing them. Accept the options, and click on the Finish button. 
+
+The AVD Manager will create the AVD for you, and when it is done, display it in the AVD Manager list of devices. You may now close the AVD Manager. 
+
+Run the app in the emulator
+
+Now that you have set up your AVD, let is run the app on it. To do this, choose the "Run app" command from the Run menu. When you are asked to choose a device, select the Nexus 5X AVD you just created. Then click OK.
+
+The AVD can take a few minutes to appear, so while we wait, let is take a look at what happens when you choose Run. 
+
+Compile, package, deploy, and run The Run command does not just run your app. It also handles all the preliminary tasks that are needed for the app to run: 
+
+An APK file is an Android application package. it is basically a JAR or ZIP file for Android applications.
+
+The Java source files get compiled to bytecode.
+
+An Android application package, or APK file, gets created.
+
+The APK file includes the compiled Java files, along with any libraries and resources needed by your app.
+
+Assuming there is not one already running, the emulator gets launched and then runs the AVD.
+
+Once the emulator has been launched and the AVD is active, the APK file is uploaded to the AVD and installed.
+
+The AVD starts the main activity associated with the app.
+
+Your app gets displayed on the AVD screen, and it is all ready for you to test out.
+
+You can watch progress in the console
+
+It can sometimes take quite a while for the emulator to launch with your AVD—often several minutes. If you like, you can watch what is happening using the Android Studio console. The console gives you a blow-by-blow account of what the build system is doing, and if it encounters any errors, you will see them highlighted in the text.
+
+NOTE We suggest finding something else to do while waiting for the emulator to start. Like quilting, or cooking a small meal.
+
+You can find the console at the bottom of the Android Studio screen (click on the Run option at the bottom of the screen if it does not appear automatically): 
+
+Here is the output from our console window when we ran our app: 
+
+Test drive 
+
+So let is look at what actually happens onscreen when you run your app.
+
+First, the emulator fires up in a separate window. The emulator takes a while to load the AVD, but then you see what looks like an actual Android device. 
+
+Wait a bit longer, and you will see the app you just created. The application name appears at the top of the screen, and the default sample text "Hello World!" is displayed in the middle of the screen.
+
+What just happened?
+
+Let is break down what happens when you run the app:
+
+Android Studio launches the emulator, loads the AVD, and installs the app.
+
+When the app gets launched, an activity object is created from MainActivity.java. 
+
+The activity specifies that it uses the layout activity_main.xml.
+
+The activity tells Android to display the layout on the screen.
+
+The text "Hello World!" gets displayed.
+
+THERE ARE NO DUMB QUESTIONS Q: You mentioned that when you create an APK file, the Java source code gets compiled into bytecode and added to the APK. Presumably you mean it gets compiled into Java bytecode, right?
+
+A: It does, but that is not the end of the story. Things work a little differently on Android.
+
+The big difference with Android is that your code does not actually run inside an ordinary Java VM. It runs on the Android runtime (ART) instead, and on older devices it runs in a predecessor to ART called Dalvik. This means that you write your Java source code and compile it into .class files using the Java compiler, and then the .class files get stitched into one or more files in DEX format, which is smaller, more efficient bytecode. ART then runs the DEX code. You can find more details about this in Appendix C.
+
+Q: That sounds complicated. Why not just use the normal Java VM?
+
+A: ART can convert the DEX bytecode into native code that can run directly on the CPU of the Android device. This makes the app run a lot faster, and use a lot less battery power.
+
+Q: Is a Java virtual machine really that much overhead?
+
+A: Yes. Because on Android, each app runs inside its own process. If it used ordinary JVMs, it would need a lot more memory.
+
+Q: Do I need to create a new AVD every time I create a new app?
+
+A: No, once you have created the AVD you can use it for any of your apps. You may find it useful to create multiple AVDs in order to test your apps in different situations. As an example, in addition to a phone AVD you might want to create a tablet AVD so you can see how your app looks and behaves on larger devices.
+
+Refine the app
+
+Over the past several pages, you have built a basic Android app and seen it running in the emulator. Next, We are going to refine the app.
+
+At the moment, the app displays the sample text "Hello World!" that the wizard put in as a placeholder. You are going to change that text to say something else instead. So what do we need to change in order to achieve that? To answer that, let is take a step back and look at how the app is currently built. 
+
+The app has one activity and one layout When we built the app, we told Android Studio how to configure it, and the wizard did the rest. The wizard created an activity for us, and also a default layout.
+
+The activity controls what the app does Android Studio created an activity for us called MainActivity.java. The activity specifies what the app does and how it should respond to the user.
+
+The layout controls the app is appearance MainActivity.java specifies that it uses the layout Android Studio created for us called activity_main.xml. The layout specifies what the app looks like. 
+
+We want to change the appearance of the app by changing the text that is displayed. This means that we need to deal with the Android component that controls what the app looks like, so we need to take a closer look at the layout.
+
+What is in the layout? We want to change the sample "Hello World!" text that Android Studio created for us, so let is start with the layout file activity_main.xml. If it is not already open in an editor, open it now by finding the file in the app src main res layout folder in the explorer and double-clicking on it. 
+
+The design editor As you learned earlier, there are two ways of viewing and editing layout files in Android Studio: through the design editor and through the code editor.
+
+When you choose the design option, you can see that the sample text "Hello World!" appears in the layout as you might expect. But what is in the underlying XML?
+
+Let is see by switching to the code editor. 
+
+The code editor When you choose the code editor option, the content of activity_main.xml is displayed. Let is take a closer look at it. 
+
+activity_main.xml has two elements
+
+Below is the code from activity_main.xml that Android Studio generated for us. We have left out some of the details you do not need to think about just yet; We will cover them in more detail through the rest of the book.
+
+Here is our code: 
+
+As you can see, the code contains two elements.
+
+The first is an <android.support.constraint.ConstraintLayout> element. This is a type of layout element that tells Android how to display components on the device screen. There are various types of layout element available for you to use, and you will find out more about these later in the book.
+
+The most important element for now is the second element, the <TextView>. This element is used to display text to the user, in our case the sample text "Hello World!"
+
+RELAX
+
+Do not worry if your layout code looks different from ours.
+
+Android Studio may give you slightly different XML depending on which version you are using. You do not need to worry about this, because from the next chapter onward you will learn how to roll your own layout code, and replace a lot of what Android Studio gives you.
+
+The key part of the code within the <TextView> element is the line starting with android:text. This is a text property describing the text that should be displayed: 
+
+Let is change the text to something else.
+
+Update the text displayed in the layout
+
+The key part of the <TextView> element is this line:
+
+android:text="Hello World!" /> android:text means that this is the text property of the <TextView> element, so it specifies what text should be displayed in the layout. In this case, the text that is being displayed is "Hello World!" 
+
+To update the text that is displayed in the layout, simply change the value of the text property from "Hello World!" to "Sup doge". The new code for the <TextView> should look like this: 
+
+Once you have updated the file, go to the File menu and choose the Save All option to save your change.
+
+THERE ARE NO DUMB QUESTIONS Q: My layout code looks different from yours. Is that OK?
+
+A: Yes, that is fine. Android Studio may generate slightly different code if you are using a different version than us, but that does not really matter. From now on you will be learning how to create your own layout code, and you will replace a lot of what Android Studio gives you.
+
+Q: Am I right in thinking We are hardcoding the text that is displayed?
+
+A: Yes, purely so that you can see how to update text in the layout. There is a better way of displaying text values than hardcoding them in your layouts, but you will have to wait for the next chapter to learn what it is.
+
+Q: The folders in my project explorer pane look different from yours. Why is that?
+
+A: Android Studio lets you choose alternate views for how to display the folder hierarchy, and it defaults to the "Android" view. We prefer the "Project" view, as it reflects the underlying folder structure. You can change your explorer to the "Project" view by clicking on the arrow at the top of the explorer pane, and selecting the "Project" option. 
+
+Take the app for a test drive 
+
+Once you have edited the file, try running your app in the emulator again by choosing the "Run app" command from the Run menu. You should see that your app now says "Sup doge" instead of "Hello World!" 
+
+You have now built and updated your first Android app.
+
+Chapter 1 Your Android Toolbox
+
+You have got Chapter 1 under your belt and now you have added Android basic concepts to your toolbox. 
+
+BULLET POINTS Versions of Android have a version number, API level, and code name.
+
+Android Studio is a special version of IntelliJ IDEA that interfaces with the Android Software Development Kit (SDK) and the Gradle build system.
+
+A typical Android app is composed of activities, layouts, and resource files.
+
+Layouts describe what your app looks like. They are held in the app src main res layout folder.
+
+Activities describe what your app does, and how it interacts with the user. The activities you write are held in the app src main java folder.
+
+AndroidManifest.xml contains information about the app itself. It lives in the app src main folder.
+
+An AVD is an Android Virtual Device. It runs in the Android emulator and mimics a physical Android device.
+
+An APK is an Android application package. it is like a JAR file for Android apps, and contains your app is bytecode, libraries, and resources. You install an app on a device by installing the APK.
+
+Android apps run in separate processes using the Android runtime (ART).
+
+The <TextView> element is used for displaying text.
