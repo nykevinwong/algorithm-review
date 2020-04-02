@@ -1,0 +1,50 @@
+Garbage Collection Basics.
+Memory managementis a major concern for developers. unmanaged programming language often exhibit one serious behavior: memory leaks when allocated memory that is never reclaimed.
+Garbage Collection is designed to avoid the vast majority of memory leaks. Unused, unreferenced objects are automatically removed from memory.
+GC works only on managed memory objects.
+
+an orphaned object is an object which has no more references to it, and this situation causes a memory leak. 
+the garbage collector is the responsible for removing these objects from memory and preventing memory leaks.
+GC does not happen immediately once an object is orphaned. GC occurs periodically based on avaialble memory, allocated memory and current time since last garbage collection.
+the delay between garbage collections can range from seconds to days. 
+
+Not all orphaned objects are recalimed during every collection.
+There are very few instances when help the GC is along is necessary.
+You can force Garbage Collection to occur by calling GC.collect method; 
+
+C Sharp provides two ways to deal with memory management: Garbage Collection and Dispose methode via I-Disposable.
+GC is an automatic process that takes care of memory management in most situations.
+
+Disposal can be used to release resources by closing file, database connections, locks, opearting system handle and unmanaged objects.
+once Disposal method of an object is called, the object became an orphan and sit in the memory until garbage collector reclaims the memory at a later date.
+ 
+There are two ways to implement Disposal. calling the dispose method of I-Disposable or apply the using statement.
+C Sharp compiler converts the using statement to try-catch-finally block to ensure Dispose is always called in finally block even when an execption is thrown or the code exists the try block early.
+
+When should Dispose methode be used? Simple rule: When in doubt, dispose. Windows forms controls using delegates or events, file or network steams, network or database connections and etc.
+whenever the connection or state on the resource side is as important as memory management is on the application side.
+
+A Finalizer is the opposite of a constructor. A constructor is the first opportunity to work with an object.
+A finalizer is the last opportunity to work with an object. A finalizer is internally a method whose name begins with a tilde sign and it can only be called by garbage collector.
+
+How finalizer works?
+Objects utilize a pointer on the stack that references the data stored on the heap.
+When the GC runs, if it sees any objects in heap memory still have reference pointer on the stack memory,  no action is taken.
+when the GC runs again next time and sees any objects in heap memory have no reference pointer on the stack memory, GC release memory of that object if the object has no finalzer method.
+Any object with a finalizer method will be put into a queue and kept alive by Garbage colector. 
+Next, Finalizer thread awakes and kicks in to call the finalizer method of each object in the Queue. 
+once the object has been ran, the object became orphan until garbage collection occurs next time to release its memory.
+
+I-Disposable should only be implemented when unmanaged resources are begin used.
+Implementing I-Disposable can introduce the inefficiency due to the overhead of the finalization process.
+
+Microsoft suggests using a Dispose pttern when implementing I-Disposable.
+In addition to implement Dispose methode, we will introduce a boolean _disposed flag in the class being implemented by I-Disposable interface.
+we will also create a overloading Dispose method with protected virtual access modifier on method level and provide a disposing parameter.
+we will set _disposed to true in the end of this overloading function. when _disposed is true, we will not execute this remaining body of the overloading methode.
+when _disposed is false, we check disposing parameter and free managed objects that used I-Disposable interface.
+we always try to release unmanaged objects before we set _disposed flag equals true.
+We will call Dispose ture and GC dot SuppressFinalize this on Dispose method provided by I-Disposable interface.
+finally, in the finalizer method, we call Dispose false there.
+
+ 

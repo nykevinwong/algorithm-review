@@ -1,0 +1,12 @@
+UNDERSTANDING STATIC.
+	The static modifier changes the behavior of C# types and members.
+What's the difference?
+	A static class or member cannot be accsseed through an instance.
+	Classes and members can be marked as static.
+	In a static class, all methodes must be marked as static.
+A non-static class is used to create multiple objects based on the non-static type.
+	Objects are created using the new keyword.
+you cannot use the new keyword with a static class.
+	Only one instance of the object ever exists.
+	
+	

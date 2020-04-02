@@ -1,0 +1,37 @@
+Managing a Thread.
+Once a new thread is started, there are a number of properties and methods that can be called to manage it.
+The isAlive property returns true until the thread ends.
+Each thread has a Name property useful for debugging.
+Thread.CurrentThread gives you the currently executing thread.
+A running thread can be paused using Thread.Sleep method.
+You can wait for another thread to end by calling its Join methode.
+You check to see if a thread is blocked by checking its ThreadState property.
+A thread's Priority property determins how much execution time it gets relative to other threads.
+
+There are two types of threads.
+Foreground threads and Background threads.
+Foreground threads keep the application alive for as long as they are running.
+when completed, the aplication ends and any background threads terminate immediately.
+By default, threads that are explicityly created are foreground threads.
+
+Background threads are terminated automatically when all foreground threads are closed or completed.
+a background thread can be created by setting the IsBackground property to true.
+IsBackground can also be used to change a threads statu from Background to Foreground.
+Background threads are excellent for tasks like polling servcies or logging info.
+
+Thread Pool.
+Starting a new thread requires time and resources. normally a few hundred microseconds.
+This can become noticeable if very many threads are being creatd for short operations.
+The ThreadPool avoids this overhead by maintaining a pool of pre-created, recyclable threads.
+
+There are a few things to consider about the ThreadPool.
+you cannot set the Name of a pooled thread, making debugging more difficult.
+Pooled Threads are always background threads.
+Blocking pooled threads can degrade performance.
+a pooled threads priority can be changed. it will be restored to normal when released back to the pool.
+
+The Task.Run method is new in the dot Net Framework four dot five.
+It strats a task that is executed on a thread from the ThreadPool.
+Remeber that threads from the Thread Pool are background threads.
+
+

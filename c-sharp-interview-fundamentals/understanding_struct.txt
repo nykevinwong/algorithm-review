@@ -1,0 +1,15 @@
+UNDERSTANDING STRUCT.
+
+A struct is very similar to a class.
+	it looks and acts like a class.
+	But it is a value type, not a reference type. 
+
+Structs share many functionalities of classes.
+	Fields, properties, methods, andevents.
+	Can implement interfaces.
+	Instantiated with the 'new' keyword.
+
+How structs are different from classes.
+	Cannot delcare a default constructor. (constructor with no parameters)
+	Cannot inheir from  another struct or class.
+	Can be instantiated without the new keyword, bu there is no constructor call and all fields must be initialized before the object can be used.

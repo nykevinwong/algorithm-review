@@ -1,0 +1,28 @@
+
+UNDERSTANDING CONSTRUCTORS
+
+Every C# class or struct has a constructor.
+What is constructor?
+	A methode that executes automatically every time an object is instantiated from the class.
+	A method with the exact same name as the class.
+	if a constructor is not provided by the programmer, C# creates a default constructor.
+What does a constructor do?
+	Enables actions to be taken as an object is created based on the class.
+	set default values.
+	limit instantiation
+	take a specific action.
+	etc.
+There are three main types of constructors.
+	Instance,Private, Static.
+Instance Constructor.
+	Used to create and intialize any instance member variables when you use the new keyword/expression to create an object of a class.
+Private Constructor.
+	Prevents other classes from creating instances of this class.
+	Only nested classes can create an instance of this class.	
+Static Constructor.
+	Used to initialize any static data.
+	A static constructor is called only once before the first instance of the class is created or any static members are referenced.
+One last point to remember about constructors.
+	they can overloaded.
+
+
